@@ -1,0 +1,3 @@
+[submodule "QSweeper/Source/Engine"]
+	path = QSweeper/Source/Engine
+	url = https://github.com/JuanDiegoMontoya/EngineBase.git
