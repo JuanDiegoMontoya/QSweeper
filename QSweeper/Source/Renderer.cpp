@@ -106,7 +106,7 @@ namespace Renderer
 		glGetIntegerv(GL_NUM_EXTENSIONS, &count);
 
 		CompileShaders();
-		//pipeline.AddCamera()
+		pipeline.AddCamera(new Camera(CameraType::kControlCam));
 
 		Engine::PushRenderCallback(DrawAll, 0);
 		//Engine::PushUpdateCallback(Update, 0);
@@ -134,12 +134,10 @@ namespace Renderer
 	}
 
 
-	static VAO* blockHoverVao = nullptr;
-	static VBO* blockHoverVbo = nullptr;
-
-
 	void DrawCube()
 	{
+		static VAO* blockHoverVao = nullptr;
+		static VBO* blockHoverVbo = nullptr;
 		if (blockHoverVao == nullptr)
 		{
 			blockHoverVao = new VAO();
@@ -148,12 +146,8 @@ namespace Renderer
 			layout.Push<float>(3);
 			blockHoverVao->AddBuffer(*blockHoverVbo, layout);
 		}
-		//glClear(GL_DEPTH_BUFFER_BIT);
-		//glDisable(GL_CULL_FACE);
 		blockHoverVao->Bind();
 		glDrawArrays(GL_TRIANGLES, 0, 36);
-		//glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-		//glEnable(GL_CULL_FACE);
 	}
 
 

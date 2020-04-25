@@ -142,6 +142,9 @@
     <ClInclude Include="Engine\Source\texture.h">
       <Filter>Engine</Filter>
     </ClInclude>
+    <ClInclude Include="Minesweeper.h">
+      <Filter>Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -230,6 +233,9 @@
     </ClCompile>
     <ClCompile Include="Engine\Source\texture.cpp">
       <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Minesweeper.cpp">
+      <Filter>Game</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

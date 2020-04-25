@@ -301,6 +301,7 @@ copy "$(SolutionDir)lib\libnoise\bin\libnoise.dll" "$(TargetDir)libnoise.dll" /Y
     <ClCompile Include="ImGuiBonus.cpp" />
     <ClCompile Include="Interface.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Minesweeper.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="vendor\imgui\imgui.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
@@ -394,6 +395,7 @@ copy "$(SolutionDir)lib\libnoise\bin\libnoise.dll" "$(TargetDir)libnoise.dll" /Y
     <ClInclude Include="Engine\Source\Vertices.h" />
     <ClInclude Include="ImGuiBonus.h" />
     <ClInclude Include="Interface.h" />
+    <ClInclude Include="Minesweeper.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="vendor\ctpl_stl.h" />
