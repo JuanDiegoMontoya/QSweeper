@@ -145,6 +145,21 @@
     <ClInclude Include="Minesweeper.h">
       <Filter>Game</Filter>
     </ClInclude>
+    <ClInclude Include="Mine.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="MineFactory.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Grid.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Cell.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="MineOptions.h">
+      <Filter>Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

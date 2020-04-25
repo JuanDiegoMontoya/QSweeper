@@ -4,6 +4,6 @@
 
 struct Cell
 {
-	std::optional<Mine> mine;
+	std::unique_ptr<Mine> mine;
 	bool flagged = false;
 };

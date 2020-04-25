@@ -1,6 +1,7 @@
 #pragma once
 #include "Cell.h"
 #include "MineFactory.h"
+#include <glm/gtx/component_wise.hpp>
 
 class Grid
 {
@@ -17,7 +18,7 @@ class SquareGrid final : public Grid
 public:
 	SquareGrid(glm::uvec2 dim)
 	{
-		gridData_ = new Cell[dim.x * dim.y];
+		gridData_ = new Cell[glm::compMul(dim)];
 	}
 
 	~SquareGrid()

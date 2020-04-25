@@ -371,6 +371,7 @@ copy "$(SolutionDir)lib\libnoise\bin\libnoise.dll" "$(TargetDir)libnoise.dll" /Y
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Cell.h" />
     <ClInclude Include="Engine\Source\camera.h" />
     <ClInclude Include="Engine\Source\Frustum.h" />
     <ClInclude Include="Engine\Source\load_image.h" />
@@ -393,9 +394,13 @@ copy "$(SolutionDir)lib\libnoise\bin\libnoise.dll" "$(TargetDir)libnoise.dll" /Y
     <ClInclude Include="Engine\Source\vbo.h" />
     <ClInclude Include="Engine\Source\vbo_layout.h" />
     <ClInclude Include="Engine\Source\Vertices.h" />
+    <ClInclude Include="Grid.h" />
     <ClInclude Include="ImGuiBonus.h" />
     <ClInclude Include="Interface.h" />
+    <ClInclude Include="Mine.h" />
+    <ClInclude Include="MineFactory.h" />
     <ClInclude Include="Minesweeper.h" />
+    <ClInclude Include="MineOptions.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="vendor\ctpl_stl.h" />

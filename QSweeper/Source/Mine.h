@@ -1,36 +1,34 @@
 #pragma once
+#include "MineOptions.h"
 
 struct Mine
 {
-	virtual float Evaluate(float dist) = 0;
-	virtual float Evaluate(glm::vec2 posOther) = 0;
-	virtual glm::vec2 GetPos() = 0;
-
-	Mine() {};
-private:
+	virtual float Evaluate(float dist) const = 0;
+	virtual float Evaluate(glm::vec2 posOther) const = 0;
+	virtual glm::vec2 GetPos() const = 0;
 };
 
-struct SimpleMine : public Mine
+struct SimpleMine final : public Mine
 {
-	SimpleMine();
+	SimpleMine(MineOptions) {};
 	SimpleMine(glm::vec2, float) {};
-	float Evaluate(float dist) override;
-	float Evaluate(glm::vec2 posOther) override;
-	glm::vec2 GetPos() override { return pos; } const
+	float Evaluate(float dist) const override;
+	float Evaluate(glm::vec2 posOther) const override;
+	glm::vec2 GetPos() const override { return pos; }
 
 	// simple mode
 	glm::vec2 pos;
 	float falloff;
 };
 
-struct ComplexMine : public Mine
+struct ComplexMine final : public Mine
 {
-	float Evaluate(float dist) override;
-	float Evaluate(glm::vec2 posOther) override;
-	glm::vec2 GetPos() override { return pos; } const
+	float Evaluate(float dist) const override;
+	float Evaluate(glm::vec2 posOther) const override;
+	glm::vec2 GetPos() const override { return pos; }
 
-		// complex mode
-		glm::vec2 pos;
+	// complex mode
+	glm::vec2 pos;
 	float falloff;
 	float amplitude;
 	float wavelength;
