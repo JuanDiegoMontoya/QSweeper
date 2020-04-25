@@ -1,2 +1,2 @@
 # QSweeper
-Minesweeper but twisted
+Nothing, yet!
