@@ -3,17 +3,19 @@
 
 struct Mine
 {
-	virtual float Evaluate(float dist) const = 0;
-	virtual float Evaluate(glm::vec2 posOther) const = 0;
+	virtual std::pair<glm::vec2, float> Evaluate() const = 0;
 	virtual glm::vec2 GetPos() const = 0;
 };
 
 struct SimpleMine final : public Mine
 {
-	SimpleMine(MineOptions) {};
+	SimpleMine(glm::vec2 p, MineOptions opts)
+	: pos(p)
+	{
+		// set falloff
+	};
 	SimpleMine(glm::vec2, float) {};
-	float Evaluate(float dist) const override;
-	float Evaluate(glm::vec2 posOther) const override;
+	std::pair<glm::vec2, float> Evaluate() const override;
 	glm::vec2 GetPos() const override { return pos; }
 
 	// simple mode
@@ -23,8 +25,7 @@ struct SimpleMine final : public Mine
 
 struct ComplexMine final : public Mine
 {
-	float Evaluate(float dist) const override;
-	float Evaluate(glm::vec2 posOther) const override;
+	std::pair<glm::vec2, float> Evaluate() const override;
 	glm::vec2 GetPos() const override { return pos; }
 
 	// complex mode

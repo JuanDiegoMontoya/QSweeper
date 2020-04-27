@@ -15,10 +15,10 @@ public:
 
 	template<class MineType>
 	typename std::enable_if<std::is_base_of<Mine, MineType>::value, std::unique_ptr<Mine>>::type
-	MakeMine()
+	MakeMine(const glm::vec2& pos)
 	{
 		static_assert(0);
-		return std::make_unique<MineType>(mineOptions);
+		return std::make_unique<MineType>(pos, mineOptions);
 	}
 
 	std::unique_ptr<Mine> test1()
@@ -28,7 +28,17 @@ public:
 
 	std::unique_ptr<Mine> test2()
 	{
-		return MakeMine<SimpleMine>();
+		return MakeMine<SimpleMine>(glm::vec2(0));
+	}
+
+	void SetSimpleMineOptions(MineOptions::SimpleMineOptions opts)
+	{
+		mineOptions.simpleMineOptions = opts;
+	}
+
+	void SetComplexMineOptions(MineOptions::ComplexMineOptions opts)
+	{
+		mineOptions.complexMineOptions = opts;
 	}
 
 private:

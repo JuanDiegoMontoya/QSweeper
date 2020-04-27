@@ -4,7 +4,8 @@ struct MineOptions
 {
 	struct SimpleMineOptions
 	{
-
+		float minFalloff;
+		float maxFalloff;
 	}simpleMineOptions;
 
 	struct IntermediateMineOptions
