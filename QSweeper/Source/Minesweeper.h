@@ -1,6 +1,9 @@
 #pragma once
 #include "Grid.h"
 
+class VBO;
+class VAO;
+
 class Minesweeper
 {
 public:

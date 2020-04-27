@@ -1,6 +1,11 @@
 #include "stdafx.h"
 #include "Grid.h"
 
+void SquareGrid::Init(GridOptions)
+{
+
+}
+
 std::unordered_map<glm::ivec2, float> SquareGrid::Evaluate() const
 {
 	std::unordered_map<glm::ivec2, float> ret;
@@ -17,5 +22,6 @@ std::unordered_map<glm::ivec2, float> SquareGrid::Evaluate() const
 
 float SquareGrid::Evaluate(glm::ivec2, float radius) const
 {
+	ASSERT(0); // does nothin' yet
 	return 0.0f;
 }
