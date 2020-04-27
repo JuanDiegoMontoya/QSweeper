@@ -2,6 +2,9 @@
 #include "Mine.h"
 #include <math_utils.h>
 
+#define GLM_ENABLE_EXPERIMENTAL
+#include <glm/gtx/hash.hpp>
+
 SimpleMine::SimpleMine(glm::ivec2 p, MineOptions opts)
 	: pos(p)
 {
@@ -25,7 +28,7 @@ std::pair<glm::ivec2, float> SimpleMine::Evaluate() const
 			// Y = Ae^(-bt)
 			using namespace glm;
 			ivec2 p(x, y);
-			float weight = pow(e<float>(), -falloff * distance(p, this->pos));
+			float weight = pow(e<float>(), -falloff * distance(vec2(p), vec2(this->pos)));
 			sumWeight += weight;
 			mappy[p] += weight;
 		}

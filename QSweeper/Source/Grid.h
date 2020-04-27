@@ -1,6 +1,8 @@
 #pragma once
 #include "Cell.h"
 #include "MineFactory.h"
+#define GLM_ENABLE_EXPERIMENTAL
+#include <glm/gtx/hash.hpp>
 #include <glm/gtx/component_wise.hpp>
 
 class Grid

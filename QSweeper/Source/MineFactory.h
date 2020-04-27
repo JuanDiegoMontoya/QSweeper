@@ -17,7 +17,7 @@ public:
 	typename std::enable_if<std::is_base_of<Mine, MineType>::value, std::unique_ptr<Mine>>::type
 	MakeMine(const glm::vec2& pos)
 	{
-		static_assert(0);
+		//static_assert(0);
 		return std::make_unique<MineType>(pos, mineOptions_);
 	}
 
