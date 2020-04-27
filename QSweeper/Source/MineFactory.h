@@ -18,7 +18,7 @@ public:
 	MakeMine(const glm::vec2& pos)
 	{
 		static_assert(0);
-		return std::make_unique<MineType>(pos, mineOptions);
+		return std::make_unique<MineType>(pos, mineOptions_);
 	}
 
 	std::unique_ptr<Mine> test1()
@@ -33,14 +33,14 @@ public:
 
 	void SetSimpleMineOptions(MineOptions::SimpleMineOptions opts)
 	{
-		mineOptions.simpleMineOptions = opts;
+		mineOptions_.simpleMineOptions = opts;
 	}
 
 	void SetComplexMineOptions(MineOptions::ComplexMineOptions opts)
 	{
-		mineOptions.complexMineOptions = opts;
+		mineOptions_.complexMineOptions = opts;
 	}
 
 private:
-	MineOptions mineOptions;
+	MineOptions mineOptions_;
 };

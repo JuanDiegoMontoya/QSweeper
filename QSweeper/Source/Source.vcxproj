@@ -298,9 +298,11 @@ copy "$(SolutionDir)lib\libnoise\bin\libnoise.dll" "$(TargetDir)libnoise.dll" /Y
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">../../stdafx.h</PrecompiledHeaderFile>
     </ClCompile>
+    <ClCompile Include="Grid.cpp" />
     <ClCompile Include="ImGuiBonus.cpp" />
     <ClCompile Include="Interface.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Mine.cpp" />
     <ClCompile Include="Minesweeper.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="vendor\imgui\imgui.cpp">
