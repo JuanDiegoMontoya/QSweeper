@@ -11,7 +11,7 @@ struct GridOptions
 {
 	struct SquareGridOptions
 	{
-
+		int numMines;
 	}squareGridOptions;
 
 	struct HexGridOptions
@@ -24,7 +24,7 @@ struct GridOptions
 class Grid
 {
 public:
-	virtual void Init(GridOptions) = 0;
+	virtual void Init(const GridOptions&) = 0;
 
 	// evaluates all mines
 	// returns positions and magnitudes
@@ -42,9 +42,10 @@ private:
 class SquareGrid final : public Grid
 {
 public:
-	SquareGrid(glm::uvec2 dim) : dim_(dim)
+	SquareGrid(glm::uvec2 dim) : dim_(dim), numCells_(glm::compMul(dim_))
 	{
-		gridData_ = new Cell[glm::compMul(dim_)];
+		gridData_ = new Cell[numCells_];
+		factory_.SetSimpleMineOptions({ .1, .5 });
 	}
 
 	~SquareGrid()
@@ -52,12 +53,14 @@ public:
 		delete[] gridData_;
 	}
 
-	void Init(GridOptions) override;
+	void Init(const GridOptions&) override;
 	std::unordered_map<glm::ivec2, float> Evaluate() const override;
 	float Evaluate(glm::ivec2 pos, float radius) const override;
 
 private:
+	MineFactory factory_;
 	const glm::uvec2 dim_;
+	const size_t numCells_;
 	Cell* gridData_;
 	int time_ = 0; // complex mode, incremented after each move or in real time
 };
