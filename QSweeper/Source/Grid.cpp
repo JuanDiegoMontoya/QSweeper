@@ -33,10 +33,11 @@ void SquareGrid::Init(const GridOptions& opts)
 std::unordered_map<glm::ivec2, float> SquareGrid::Evaluate() const
 {
 	std::unordered_map<glm::ivec2, float> ret;
-	for (int i = 0; i < glm::compMul(dim_); i++)
+	for (int i = 0; i < numCells_; i++)
 	{
 		if (auto& mine = gridData_[i].mine)
 		{
+			// add location, intensity of mine to map
 			auto pair = mine->Evaluate();
 			ret[pair.first] += pair.second;
 		}

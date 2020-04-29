@@ -13,14 +13,14 @@ SimpleMine::SimpleMine(glm::ivec2 p, MineOptions opts)
 		opts.simpleMineOptions.maxFalloff);
 };
 
-// returned float will be 1
+// returned float will be 1 (simple mine feature)
 std::pair<glm::ivec2, float> SimpleMine::Evaluate() const
 {
 	std::unordered_map<glm::ivec2, float> mappy;
 
 	// add weights of cells in square region around the mine
 	float sumWeight = 0;
-	const int r = 5; // oof hardcoded
+	const int r = 5; // oof hardcoded (should be computed with mine's falloff)
 	for (int x = -r; x <= r; x++)
 	{
 		for (int y = -r; y <= r; y++)
@@ -33,7 +33,7 @@ std::pair<glm::ivec2, float> SimpleMine::Evaluate() const
 			mappy[p] += weight;
 		}
 	}
-
+	
 	// generate a random number within the range
 	// then add values in range up until random value is reached
 	float rng = Utils::get_random(0, sumWeight);
@@ -41,7 +41,7 @@ std::pair<glm::ivec2, float> SimpleMine::Evaluate() const
 	for (const auto& p : mappy)
 	{
 		summy += p.second;
-		if (summy > rng)
+		if (summy >= rng)
 			return { p.first, 1 };
 	}
 	ASSERT_MSG(0, "Should not have gotten here!");
