@@ -20,10 +20,12 @@ void SquareGrid::Init(const GridOptions& opts)
 	std::shuffle(positions.begin(), positions.end(), g);
 	positions.erase(positions.begin() + sqOpts.numMines, positions.end());
 	ASSERT(positions.size() == sqOpts.numMines);
+
+	// cells in remaining positions are added as mines in the grid
 	for (const auto& pos : positions)
 	{
 		auto mine = factory_.MakeMine<SimpleMine>(pos);
-		int index = pos.x + pos.y * dim_.x;
+		int index = pos.x + pos.y * dim_.x; // maybe make this a function
 		gridData_[index].mine = std::move(mine);
 	}
 }
